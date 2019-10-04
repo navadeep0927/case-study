@@ -1,8 +1,21 @@
-# Take a spreadsheet and build a pipeline to upload the data into AWS using tools like Lambda and Cloud Formation
+# CI/CD with GitHub-Jenkins-AmazonS3-AmazonLambda-Amazon-DynamoDB
+
+## Take a spreadsheet and build a pipeline to upload the data into AWS using tools like Lambda and Cloud Formation
+
+|Stack|Name|
+|:------:|:-------:|
+|Provisioning|AWS CloudFormation|
+|SCM|GitHub|
+|ContinuousIntegration|Jenkins on AWS EC2|
+|Continuous Deployment| Amazon S3|
+|Post Deployment Processing| Amazon Lambda|
+|Database| Amazon DynamoDB|
+|Monitoring|Amazon Cloudwatch|
+|Alerting|CloudWatch Alarms|
 
 Here are the Major steps that are performed to complete the above task.
 
-1. Created a "CSV" file and saved it in Github repository [https://github.com/navadeep0927/devopsTest/]
+1. Created a "CSV" file and saved it in Github repository [https://github.com/navadeep0927/case-study/]
 2. Launched a "Jenkins" by Bitnami AMI from Amazon Web Services Console
 3. Installed necessary plugins[S3,Amazon EC2 plugin, Amazon S3 Bucket Credentials Plugin, AWS Lambda Plugin, Build Pipeline Plugin] to integrate Jenkins with AWS.
 4. Configured AWS Access Key and Secret Access Key in Jenkins[Under Manage Jenkins]
