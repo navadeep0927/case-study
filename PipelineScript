@@ -1,0 +1,27 @@
+node {
+   stage("Clone GitHub") {
+       checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Github', url: 'https://github.com/navadeep0927/devopsTest.git']]])
+   }
+   
+   stage("List Files"){
+       sh 'ls -lrt'
+       sh 'chmod 777 *.*'
+       sh 'ls -lrt'
+   }
+   
+   stage("List Buckets"){
+       echo "Listing Buckets"
+       sh 'aws s3 ls'
+   }
+   
+   stage("Copy to Bucket"){
+       sh "aws s3 cp *.csv s3://${BUCKET_NAME}/"
+   }
+   
+   stage("Verify if object is copied"){
+       sh "aws s3 ls s3://${BUCKET_NAME}/"
+   }
+   stage("Execute Python Program"){
+       sh "python pandas.py"
+   }
+}
