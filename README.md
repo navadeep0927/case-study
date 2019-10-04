@@ -29,8 +29,8 @@ Here are the Major steps that are performed to complete the above task.
 
 7. On AWS Console
    * Created a "Policy" using cloud formation template to provide full access to S3, cloudwatchlogs, dynamodb
-   * Created a role : role_lambda_csv_reader and attach the policy in step (i) to it
-   * Created a Lambda Function(lambda_csv_reader) and attach the role created in step (ii)
+   * Created a role : role_lambda_csv_reader and attach the policy from the above step
+   * Created a Lambda Function(lambda_csv_reader) and attach the role created above
    * Create a trigger with S3, to pick the latest file uploaded to S3 after Jenkins build
    * Sripted a python program to read CSV file from S3 and upload the data in to DynamoDB[Need to create appropriate table in DynamoDB before executing this program]
 
